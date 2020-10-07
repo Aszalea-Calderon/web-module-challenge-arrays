@@ -156,7 +156,7 @@ function getFlavorByIndex(copyCat, index) {
 // }
 
 
-/*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+/*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀--THIS ONE
 As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, 
 as opposed to just arbitrarily removing the first or last flavor. Your task is to get an index by flavor name, and remove that single flavor from the array.  
 
@@ -170,10 +170,25 @@ Use the removeFlavorByName function below to do the following:
     HINT: You can use .splice() for this use for if statement 
 */
 
-function removeFlavorByName(copyCat, string){
-   copyCat= copyCat.splice(copyCat.indexOf(string))
+// First pass
+//function removeFlavorByName(removeFlavor, copyCat){
+//     copyCat.splice(removeFlavor);
+//     return copyCat;
+// }
+// let removeFlavor =('vanilla')
+
+function removeFlavorByName(copyCat, removeFlavor){
+    let flavorIndex = copyCat.indexOf(removeFlavor);
+    copyCat.splice(flavorIndex, 1);
     return copyCat;
 }
+
+// console.log(removeFlavorByName(copyCat,"Vanilla"))
+
+// function removeFlavorByName(copyCat, string){
+//    copyCat= copyCat.splice(copyCat.indexOf(string))
+//     return copyCat;
+// }
 
 
 
