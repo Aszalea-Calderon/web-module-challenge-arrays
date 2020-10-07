@@ -53,7 +53,7 @@ function copy(arr){
     return[...arr];
 }    
 const copyCat = copy(originalFlavors);
-console.log(copyCat);
+// console.log(copyCat);
 
 
 
@@ -77,6 +77,8 @@ function is31Flavors(copyCat){
   }
 }
 console.log(is31Flavors);
+
+
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
 
@@ -108,7 +110,7 @@ Use the removeLastFlavor function below to do the following:
 */
 
 function removeLastFlavor(copyCat){
-   copyCat.pop([-1]);
+   copyCat.pop();
    return copyCat;
 }
 
@@ -121,29 +123,32 @@ Use the getFlavorByIndex function below to do the following:
     1. Recieve an array and an index
     2. Return the flavor located at the received index position
 
-    For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully--- WHY IS THIS WRONG
+    For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully---
 */
 //get flavor by index number
 //return the flavor name 'string'
 //Having issues with this one
 
 
- function getFlavorByIndex(copyCat, string){
-    let newArr =[];
-    for (let i = 0; i < copyCat.length; i++){
-        if(copyCat[i].includes(string)){
-            newArr.push(copyCat[i]);
-        }
-    }
-    return newArr;
- }
-console.log(getFlavorByIndex(copyCat,2));
+//  function getFlavorByIndex(copyCat, string){
+//     let newArr =[];
+//     for (let i = 0; i < copyCat.length; i++){
+//         if(copyCat[i].includes(string)){
+//             newArr.push(copyCat[i]);
+//         }
+//     }
+//     return newArr;
+//  }
+// console.log(getFlavorByIndex(copyCat,2));
+
+function getFlavorByIndex(copyCat, index) {
+    return copyCat[index];
+  }
+  console.log(getFlavorByIndex(copyCat, 2));
 
 // function getFlavorByIndex(index, copyCat){
 //    return copyCat.find(index)
 // }
-
-
 
 // function getFlavorByIndex(copyCat, index){
 //     flavorName =[index]
@@ -162,7 +167,7 @@ Use the removeFlavorByName function below to do the following:
 
     For example: running removeFlavorByName(originalFlavors, "Rocky Road") would return an array with the a length of 30 because Rocky Road would have been removed. 
 
-    HINT: You can use .splice() for this
+    HINT: You can use .splice() for this use for if statement 
 */
 
 function removeFlavorByName(copyCat, string){
