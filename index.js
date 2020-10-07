@@ -34,6 +34,10 @@ const originalFlavors = [
     "Vanilla",
     "Vanilla Burnt Almond"
 ]
+// const test = [
+//     'other',
+//     'flavors'
+// ]
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: Copy the Array! 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 We have an array called originalFlavors with 31 flavors (see above).  In these tasks, we will be reading and writing data to this array.  
@@ -41,15 +45,15 @@ With all of these changes going on, we don't want to lose track of the actual, o
 
 /*
 Use the copy function below to do the following:
-    1. Receive two arguments: one for your new array and one for your original array
+    1. Receive one argument for your original array
     2. Return the new array that holds an exact copy of the old array  
 */
 
-function copy(/*your code here*/){
-    /*your code here*/
+function copy(arr){
+    return[...arr];
 }    
-
-
+const copyCat = copy(originalFlavors);
+// console.log(copyCat);
 
 
 
@@ -64,9 +68,16 @@ For Example: is31Flavors(originalFlavors) will return true if your code is worki
 */
 
 
-function is31Flavors(/*your code here*/){
-   /*your code here*/
+//Check if the flavors actually have 31. if so true, if not false
+function is31Flavors(copyCat){
+  if(copyCat.length === 31){
+      return true;
+  }else{
+      return false;
+  }
 }
+console.log(is31Flavors);
+
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Corporate has come to you with an idea for a new flavor: Rainbow Sherbert! They think this will be a game changer. You need to modify the array to include this flavor. 
@@ -75,16 +86,17 @@ Use the addFlavor function below to do the following:
     1. Receive an array
     2. Receive a new flavor as a string
     3. Add the passed flavor to the front of the array
-    4. Return the resulting array
+    4. Return the resulting array x
 
     For example: addFlavor("Rainbow Sherbert", originalFlavors) should return the array ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"]
 */
 
-
-function addFlavor(/*your code here*/){
-   /*your code here*/
+//This serves to add flavors to our array copyCat so that we can maintain the original array 
+function addFlavor(copyCat){
+    copyCat.unshift(flavor);
+   return copyCat;
 }
-
+const flavor = 'Rainbow Sherbert';
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 Houston, we have a problem! There are now 32 flavors in the originalFlavors array! Your task is to remove an item from the end of the array. 
@@ -97,28 +109,55 @@ Use the removeLastFlavor function below to do the following:
     For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
 
-function removeLastFlavor(/*your code here*/){
-   /*your code here*/
+function removeLastFlavor(copyCat){
+   copyCat.pop();
+   return copyCat;
 }
 
 
 
-/* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+/* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀--THIS ONE
 Write a function that returns a flavor at a given index in the array.
 
 Use the getFlavorByIndex function below to do the following:
     1. Recieve an array and an index
     2. Return the flavor located at the received index position
 
-    For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
+    For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully---
 */
+//get flavor by index number
+//return the flavor name 'string'
+//Having issues with this one
 
-function getFlavorByIndex(/*your code here*/){
-    /*your code here*/
-}
+
+//  function getFlavorByIndex(copyCat, string){
+//     let newArr =[];
+//     for (let i = 0; i < copyCat.length; i++){
+//         if(copyCat[i].includes(string)){
+//             newArr.push(copyCat[i]);
+//         }
+//     }
+//     return newArr;
+//  }
+// console.log(getFlavorByIndex(copyCat,2));
+
+function getFlavorByIndex(copyCat, index) {
+    return copyCat[index];
+  }
+  console.log(getFlavorByIndex(copyCat, 2));
 
 
-/*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+// function getFlavorByIndex(index, copyCat){
+//    return copyCat.find(index)
+// }
+
+// function getFlavorByIndex(copyCat, index){
+//     flavorName =[index]
+//     return copyCat.flavorName ;
+// }
+
+
+/*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀--THIS ONE
 As corporate wants to add more and more flavors to their lineup, they've realized that they need to remove flavors based on flavor name, 
 as opposed to just arbitrarily removing the first or last flavor. Your task is to get an index by flavor name, and remove that single flavor from the array.  
 
@@ -129,12 +168,31 @@ Use the removeFlavorByName function below to do the following:
 
     For example: running removeFlavorByName(originalFlavors, "Rocky Road") would return an array with the a length of 30 because Rocky Road would have been removed. 
 
-    HINT: You can use .splice() for this
+    HINT: You can use .splice() for this use for if statement 
 */
 
-function removeFlavorByName(/*your code here*/){
-    /*your code here*/
+function removeFlavorByName(copyCat, removeFlavor){
+    let flavorIndex = copyCat.indexOf(removeFlavor);
+    copyCat.splice(flavorIndex, 1);
+    return copyCat;
 }
+// removeFlavorByName();//This
+
+
+// First pass
+//function removeFlavorByName(removeFlavor, copyCat){
+//     copyCat.splice(removeFlavor);
+//     return copyCat;
+// }
+// let removeFlavor =('vanilla')
+
+
+// console.log(removeFlavorByName(copyCat,"Vanilla"))
+
+// function removeFlavorByName(copyCat, string){
+//    copyCat= copyCat.splice(copyCat.indexOf(string))
+//     return copyCat;
+// }
 
 
 
@@ -156,10 +214,28 @@ Use the filterByWord function below to do the following:
 
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
-
-function filterByWord(/*your code here*/){
-    /*your code here*/
+// const sortFlavor='Chocolate';
+function filterByWord(originalFlavors, sortFlavor){
+   
+    let newArr =[];
+    for (let i=0; i <originalFlavors.length; i++){
+        if(originalFlavors[i].includes(sortFlavor));
+        return newArr;
+    }
 }
+// filterByWord();
+
+
+//function getFlavorByIndex(copyCat, string){
+    //     let newArr =[];
+    //     for (let i = 0; i < copyCat.length; i++){
+    //         if(copyCat[i].includes(string)){
+    //             newArr.push(copyCat[i]);
+    //         }
+    //     }
+    //     return newArr;
+    //  }
+    // console.log(getFlavorByIndex(copyCat,2));
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
